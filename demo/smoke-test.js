@@ -1,27 +1,27 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var ReactKinetic = require('../react-kinetic');
+var ReactKonva = require('../react-konva');
 
-var Arc = ReactKinetic.Arc;
-var Circle = ReactKinetic.Circle;
-var Ellipse = ReactKinetic.Ellipse;
-var Group = ReactKinetic.Group;
-var KImage = ReactKinetic.Image;
-var Layer = ReactKinetic.Layer;
-var Line = ReactKinetic.Line;
-var Label = ReactKinetic.Label;
-var Path = ReactKinetic.Path;
-var Rect = ReactKinetic.Rect;
-var Ring = ReactKinetic.Ring;
-var RegularPolygon = ReactKinetic.RegularPolygon;
-var Sprite = ReactKinetic.Sprite;
-var Stage = ReactKinetic.Stage;
-var Star = ReactKinetic.Star;
-var Tag = ReactKinetic.Tag;
-var Text = ReactKinetic.Text;
-var TextPath = ReactKinetic.TextPath;
-var Wedge = ReactKinetic.Wedge;
+var Arc = ReactKonva.Arc;
+var Circle = ReactKonva.Circle;
+var Ellipse = ReactKonva.Ellipse;
+var Group = ReactKonva.Group;
+var KImage = ReactKonva.Image;
+var Layer = ReactKonva.Layer;
+var Line = ReactKonva.Line;
+var Label = ReactKonva.Label;
+var Path = ReactKonva.Path;
+var Rect = ReactKonva.Rect;
+var Ring = ReactKonva.Ring;
+var RegularPolygon = ReactKonva.RegularPolygon;
+var Sprite = ReactKonva.Sprite;
+var Stage = ReactKonva.Stage;
+var Star = ReactKonva.Star;
+var Tag = ReactKonva.Tag;
+var Text = ReactKonva.Text;
+var TextPath = ReactKonva.TextPath;
+var Wedge = ReactKonva.Wedge;
 
 var planeSpriteImage = new Image();
 planeSpriteImage.src = "planesprite.png";

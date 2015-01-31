@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var RK = require('../react-kinetic');
+var RK = require('../react-konva');
 
 describe('Stage', function () {
   it('can render empty Stage', function () {
@@ -30,12 +30,12 @@ describe('Circle', function () {
       stageInstance,
       RK.Circle
     );
-    var kineticCircle = circleInstance.getKineticNode();
-    expect(kineticCircle.x()).toBe(10);
-    expect(kineticCircle.y()).toBe(20);
-    expect(kineticCircle.radius()).toBe(5);
-    expect(kineticCircle.stroke()).toBe('red');
-    expect(kineticCircle.id()).toBe(1);
+    var konvaCircle = circleInstance.getKonvaNode();
+    expect(konvaCircle.x()).toBe(10);
+    expect(konvaCircle.y()).toBe(20);
+    expect(konvaCircle.radius()).toBe(5);
+    expect(konvaCircle.stroke()).toBe('red');
+    expect(konvaCircle.id()).toBe(1);
   });
 });
 
@@ -47,9 +47,9 @@ describe('Text', function () {
       stageInstance,
       RK.Text
     );
-    var kineticInstance = renderedText.getKineticNode();
-    expect(kineticInstance.text()).toEqual('Hello, world');
-    expect(kineticInstance.getText()).toEqual('Hello, world');
+    var konvaInstance = renderedText.getKonvaNode();
+    expect(konvaInstance.text()).toEqual('Hello, world');
+    expect(konvaInstance.getText()).toEqual('Hello, world');
   });
 
   it('can render Text with size', function () {
@@ -65,8 +65,8 @@ describe('Text', function () {
       stageInstance,
       RK.Text
     );
-    var kineticInstance = renderedText.getKineticNode();
-    expect(kineticInstance.text()).toEqual('Hello, world');
+    var konvaInstance = renderedText.getKonvaNode();
+    expect(konvaInstance.text()).toEqual('Hello, world');
   });
 });
 
@@ -93,7 +93,7 @@ describe('TextPath', function () {
       RK.TextPath
     );
     expect(renderedTextPath).not.toBeNull();
-    var kineticInstance = renderedTextPath.getKineticNode();
-    expect(kineticInstance.getText()).toEqual(txt);
+    var konvaInstance = renderedTextPath.getKonvaNode();
+    expect(konvaInstance.getText()).toEqual(txt);
   });
 });

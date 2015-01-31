@@ -36,12 +36,12 @@ function limit (val, min, max) {
 }
 
 var React = require('react');
-var ReactKinetic = require('../react-kinetic');
+var ReactKonva = require('../react-konva');
 
-var Stage = ReactKinetic.Stage;
-var Layer = ReactKinetic.Layer;
-var Sprite = ReactKinetic.Sprite;
-var KImage = ReactKinetic.Image;
+var Stage = ReactKonva.Stage;
+var Layer = ReactKonva.Layer;
+var Sprite = ReactKonva.Sprite;
+var KImage = ReactKonva.Image;
 
 var InputHandler = function () {
   var keyCodeMapping = {

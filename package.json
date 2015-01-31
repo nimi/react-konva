@@ -1,11 +1,11 @@
 {
-  "name": "react-kinetic",
+  "name": "react-konva",
   "version": "0.3.0",
-  "author": "Mikhail <freiksenet@gmail.com> Novikov",
-  "description": "Using KineticJS library with React",
+  "author": "Olim <olim.mail@gmail.com> Saidov, Mikhail <freiksenet@gmail.com> Novikov",
+  "description": "Using Konva library with React",
   "keywords": [
     "canvas",
-    "kinetic",
+    "konva",
     "react",
     "react-component",
     "browser"
@@ -13,14 +13,14 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freiksenet/react-kinetic.git"
+    "url": "https://github.com/olimsaidov/react-konva.git"
   },
   "peerDependencies": {
-    "kinetic": "5.0.6",
+    "konva": "git+https://github.com/olimsaidov/konva.git",
     "react": "^0.11.0"
   },
   "devDependencies": {
-    "kinetic": "5.0.6",
+    "konva": "git+https://github.com/olimsaidov/konva.git",
     "react": "^0.11.0",
     "jshint": "^2.5.6",
     "jsx-loader": "^0.11.2",
@@ -32,14 +32,14 @@
     "webpack": "^1.4.4",
     "webpack-dev-server": "^1.6.5"
   },
-  "main": "./react-kinetic",
+  "main": "./react-konva",
   "scripts": {
     "clean": "rm -r build",
     "umd": "webpack",
     "demo": "npm run umd && cp -r demo build/ && cp index.html build/",
     "umd-min": "webpack --config webpack.config.min.js",
     "start": "webpack-dev-server -d --colors --progress",
-    "test": "jshint ./react-kinetic.js ./src/*.js ./test/*.js && karma start --single-run --browsers Firefox",
+    "test": "jshint ./react-konva.js ./src/*.js ./test/*.js && karma start --single-run --browsers Firefox",
     "test-watch": "karma start",
     "gh-pages": "./scripts/gh-pages.sh"
   }

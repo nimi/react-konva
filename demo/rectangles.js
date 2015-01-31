@@ -1,13 +1,13 @@
 /** @jsx React.DOM */
 
 var React = require('react');
-var ReactKinetic = require('../react-kinetic');
+var ReactKonva = require('../react-konva');
 
-var Stage = ReactKinetic.Stage;
-var Layer = ReactKinetic.Layer;
-var Rect = ReactKinetic.Rect;
-var Star = ReactKinetic.Star;
-var Circle = ReactKinetic.Circle;
+var Stage = ReactKonva.Stage;
+var Layer = ReactKonva.Layer;
+var Rect = ReactKonva.Rect;
+var Star = ReactKonva.Star;
+var Circle = ReactKonva.Circle;
 
 var TestingComponent = React.createClass({
   getInitialState: function () {

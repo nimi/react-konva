@@ -10,5 +10,5 @@ cd build/
 git init .
 git add .
 git commit -m "Update pages"
-git push git@github.com:freiksenet/react-kinetic.git master:gh-pages --force
+git push git@github.com:olimsaidov/react-konva.git master:gh-pages --force
 rm -rf .git

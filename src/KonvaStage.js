@@ -2,17 +2,17 @@
 
 var React = require('react');
 var cloneWithProps = require('react/lib/cloneWithProps');
-var Kinetic = require('kinetic');
-var KineticBaseMixin = require('./KineticBaseMixin');
-var KineticContainerMixin = require('./KineticContainerMixin');
+var Konva = require('konva');
+var KonvaBaseMixin = require('./KonvaBaseMixin');
+var KonvaContainerMixin = require('./KonvaContainerMixin');
 
 /**
- * Core Kinetic stage.
+ * Core Konva stage.
  */
 var Stage = React.createClass({
   displayName: 'Stage',
 
-  mixins: [KineticBaseMixin, KineticContainerMixin],
+  mixins: [KonvaBaseMixin, KonvaContainerMixin],
 
   propTypes: {
     width: React.PropTypes.number,
@@ -20,35 +20,35 @@ var Stage = React.createClass({
   },
 
   componentDidMount: function () {
-    // So kinetic requires container to be available on creation time, but
+    // So konva requires container to be available on creation time, but
     // as we need to add nodes before the DOM is available, we use 'fake' node
     // and then copy children to real one.
-    var oldNode = this.getKineticNode();
-    // Kinetic modifies children array in place
+    var oldNode = this.getKonvaNode();
+    // Konva modifies children array in place
     var children = oldNode.getChildren().slice();
 
-    this._node = this.createKineticNode({}, this.refs.canvas.getDOMNode());
+    this._node = this.createKonvaNode({}, this.refs.canvas.getDOMNode());
     this.updateNodeProperties({});
 
     children.forEach(function (child) {
-      child.moveTo(this.getKineticNode());
+      child.moveTo(this.getKonvaNode());
     }.bind(this));
 
     oldNode.destroy();
   },
 
-  createKineticNode: function (props, container) {
+  createKonvaNode: function (props, container) {
     if (!container) {
       container = document.createElement("div");
     }
-    return new Kinetic.Stage({
+    return new Konva.Stage({
       container: container
     });
   },
 
   render: function () {
     return React.withContext({
-      kineticContainer: this.getKineticNode()
+      konvaContainer: this.getKonvaNode()
     }, function () {
       var children = React.Children.map(
         this.props.children,

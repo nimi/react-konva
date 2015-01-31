@@ -1,8 +1,8 @@
 "use strict";
 
-var KineticPropertyConfig = [];
+var KonvaPropertyConfig = [];
 
-var KineticHierarchy = {
+var KonvaHierarchy = {
   Node: [],
   Stage: ['Node'],
   Container: ['Node'],
@@ -29,7 +29,7 @@ var KineticHierarchy = {
   Tag: ['Shape', 'Node']
 };
 
-var KineticEvents = {
+var KonvaEvents = {
   onMouseOver: "mouseover",
   onMouseOut: "mouseout",
   onMouseEnter: "mouseenter",
@@ -50,7 +50,7 @@ var KineticEvents = {
 };
 
 function addToPropertyConfig (nodeType, propName, defaultValue) {
-  KineticPropertyConfig.push({
+  KonvaPropertyConfig.push({
     propName: propName,
     type: undefined,
     nodeType: nodeType,
@@ -58,7 +58,7 @@ function addToPropertyConfig (nodeType, propName, defaultValue) {
   });
 }
 
-// This is done in this way so that it's easier to import from grep over Kinetic
+// This is done in this way so that it's easier to import from grep over Konva
 // code.
 addToPropertyConfig('Node', 'x', 0);
 addToPropertyConfig('Node', 'y', 0);
@@ -110,6 +110,12 @@ addToPropertyConfig('Container', 'clipX');
 addToPropertyConfig('Container', 'clipY');
 addToPropertyConfig('Container', 'clipWidth');
 addToPropertyConfig('Container', 'clipHeight');
+addToPropertyConfig('Container', 'maskImage');
+addToPropertyConfig('Container', 'maskComposition');
+addToPropertyConfig('Container', 'maskX');
+addToPropertyConfig('Container', 'maskY');
+addToPropertyConfig('Container', 'maskWidth');
+addToPropertyConfig('Container', 'maskHeight');
 addToPropertyConfig('Shape', 'stroke');
 addToPropertyConfig('Shape', 'strokeRed', 0);
 addToPropertyConfig('Shape', 'strokeGreen', 0);
@@ -215,7 +221,7 @@ addToPropertyConfig('Tag', 'pointerHeight', 0);
 addToPropertyConfig('Tag', 'cornerRadius', 0);
 
 module.exports = {
-  KineticPropertyConfig: KineticPropertyConfig,
-  KineticHierarchy: KineticHierarchy,
-  KineticEvents: KineticEvents
+  KonvaPropertyConfig: KonvaPropertyConfig,
+  KonvaHierarchy: KonvaHierarchy,
+  KonvaEvents: KonvaEvents
 };

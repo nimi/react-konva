@@ -3,10 +3,10 @@
 var React = require('react');
 var cloneWithProps = require('react/lib/cloneWithProps');
 
-var KineticContainerMixin = {
+var KonvaContainerMixin = {
   nodeRender: function () {
     return React.withContext({
-      kineticContainer: this.getKineticNode()
+      konvaContainer: this.getKonvaNode()
     }, function () {
       var children = React.Children.map(
         this.props.children,
@@ -19,4 +19,4 @@ var KineticContainerMixin = {
   }
 };
 
-module.exports = KineticContainerMixin;
+module.exports = KonvaContainerMixin;

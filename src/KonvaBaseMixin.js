@@ -1,12 +1,12 @@
 "use strict";
 
-var KineticProperty = require('./KineticProperty').KineticProperty;
+var KonvaProperty = require('./KonvaProperty').KonvaProperty;
 
-var KineticBaseMixin = {
+var KonvaBaseMixin = {
   componentWillMount: function () {
     this._propValidCache = {};
     var initialProps = this._getRequiredUpdates({}, this.props);
-    this._node = this.createKineticNode(initialProps.properties);
+    this._node = this.createKonvaNode(initialProps.properties);
   },
 
   componentDidMount: function () {
@@ -18,15 +18,15 @@ var KineticBaseMixin = {
   },
 
   componentWillUnmount: function () {
-    this.getKineticNode().destroy();
+    this.getKonvaNode().destroy();
   },
 
-  getKineticNode: function () {
+  getKonvaNode: function () {
     return this._node;
   },
 
   _isPropValid: function (prop) {
-    return KineticProperty.getValidProps[this.constructor.displayName][prop];
+    return KonvaProperty.getValidProps[this.constructor.displayName][prop];
   },
 
   _getValidProp: function (propKey) {
@@ -48,7 +48,7 @@ var KineticBaseMixin = {
     var validProp;
 
     for (propKey in oldProps) {
-      validEvent = KineticProperty.getEventName[propKey];
+      validEvent = KonvaProperty.getEventName[propKey];
       validProp = this._getValidProp(propKey);
       if (!newProps.hasOwnProperty(propKey)) {
         if (validEvent) {
@@ -60,7 +60,7 @@ var KineticBaseMixin = {
     }
 
     for (propKey in newProps) {
-      validEvent = KineticProperty.getEventName[propKey];
+      validEvent = KonvaProperty.getEventName[propKey];
       validProp = this._getValidProp(propKey);
       if (validEvent) {
         if (oldProps.hasOwnProperty(propKey)) {
@@ -83,7 +83,7 @@ var KineticBaseMixin = {
   },
 
   updateNodeProperties: function (prevProps) {
-    var node = this.getKineticNode();
+    var node = this.getKonvaNode();
     var updates = this._getRequiredUpdates(prevProps, this.props);
 
     var eventName;
@@ -99,4 +99,4 @@ var KineticBaseMixin = {
   }
 };
 
-module.exports = KineticBaseMixin;
+module.exports = KonvaBaseMixin;
