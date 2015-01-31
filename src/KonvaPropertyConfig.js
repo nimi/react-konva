@@ -37,7 +37,7 @@ var KonvaEvents = {
   onMouseMove: "mousemove",
   onMouseDown: "mousedown",
   onMouseUp: "mouseup",
-  onMouseWheel: "mouseWheel",
+  onMouseWheel: "mousewheel",
   onClick: "click",
   onDblClick: "dblclick",
   onDragStar: "dragstart",
