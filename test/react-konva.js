@@ -3,32 +3,36 @@
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 var RK = require('../react-konva');
+var Stage = React.createFactory(RK.Stage);
+var Layer = React.createFactory(RK.Layer);
+var Circle = React.createFactory(RK.Circle);
+var Text = React.createFactory(RK.Text);
+var TextPath = React.createFactory(RK.TextPath);
 
 describe('Stage', function () {
   it('can render empty Stage', function () {
-    var stage = TestUtils.renderIntoDocument(RK.Stage(null));
+    var stage = TestUtils.renderIntoDocument(Stage(null));
     expect(stage.getDOMNode().textContent).toEqual('');
   });
 });
 
 function renderIntoStage(component) {
-  var stageInstance = TestUtils.renderIntoDocument(
-    RK.Stage(null,
-      RK.Layer(null, component)));
-  return stageInstance;
+    return TestUtils.renderIntoDocument(
+      Stage(null,
+          Layer(null, component)));
 }
 
 describe('Circle', function () {
   it('can render Circle', function () {
     var stageInstance = TestUtils.renderIntoDocument(
-      RK.Stage(null,
-        RK.Layer(null, RK.Circle({
+      Stage(null,
+        Layer(null, Circle({
             id: 1, x: 10, y: 20,
             radius: 5, stroke: 'red'
         }))));
     var circleInstance = TestUtils.findRenderedComponentWithType(
       stageInstance,
-      RK.Circle
+      Circle
     );
     var konvaCircle = circleInstance.getKonvaNode();
     expect(konvaCircle.x()).toBe(10);
@@ -42,10 +46,10 @@ describe('Circle', function () {
 describe('Text', function () {
 
   it('can render Text with no size', function () {
-    var stageInstance = renderIntoStage(RK.Text({text: 'Hello, world'}));
+    var stageInstance = renderIntoStage(Text({text: 'Hello, world'}));
     var renderedText = TestUtils.findRenderedComponentWithType(
       stageInstance,
-      RK.Text
+      Text
     );
     var konvaInstance = renderedText.getKonvaNode();
     expect(konvaInstance.text()).toEqual('Hello, world');
@@ -53,7 +57,7 @@ describe('Text', function () {
   });
 
   it('can render Text with size', function () {
-    var stageInstance = renderIntoStage(RK.Text({
+    var stageInstance = renderIntoStage(Text({
       x: 10,
       y: 15,
       text: 'Hello, world',
@@ -63,7 +67,7 @@ describe('Text', function () {
     }));
     var renderedText = TestUtils.findRenderedComponentWithType(
       stageInstance,
-      RK.Text
+      Text
     );
     var konvaInstance = renderedText.getKonvaNode();
     expect(konvaInstance.text()).toEqual('Hello, world');
@@ -79,7 +83,7 @@ describe('TextPath', function () {
     var txt = (
       'All the world\'s a stage, and all the men and women merely players.'
     );
-    var stageInstance = renderIntoStage(RK.TextPath({
+    var stageInstance = renderIntoStage(TextPath({
       x: 100,
       y: 50,
       fill: '#333',
@@ -90,7 +94,7 @@ describe('TextPath', function () {
     }));
     var renderedTextPath = TestUtils.findRenderedComponentWithType(
       stageInstance,
-      RK.TextPath
+      TextPath
     );
     expect(renderedTextPath).not.toBeNull();
     var konvaInstance = renderedTextPath.getKonvaNode();
