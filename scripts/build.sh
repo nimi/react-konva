@@ -13,4 +13,4 @@ node -p 'p=require("./package");p.main="lib";p.scripts=p.devDependencies=undefin
 NODE_ENV=production $webpack src/index.js build/umd/ReactKonva.js
 NODE_ENV=production COMPRESS=1 $webpack src/index.js build/umd/ReactKonva.min.js
 
-echo "gzipped, the global build is `gzip -c build/umd/ReactRouter.min.js | wc -c | sed -e 's/^[[:space:]]*//'` bytes"
+echo "gzipped, the global build is `gzip -c build/umd/ReactKonva.min.js | wc -c | sed -e 's/^[[:space:]]*//'` bytes"
