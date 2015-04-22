@@ -1,6 +1,6 @@
 {
   "name": "react-konva",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": "Olim <olim.mail@gmail.com> Saidov, Mikhail <freiksenet@gmail.com> Novikov",
   "description": "Using Konva library with React",
   "keywords": [
@@ -12,11 +12,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^0.13.2"
+    "react": "^0.13.2",
+    "konva": "^0.9.0"
   },
   "devDependencies": {
-    "konva": "^0.9.0",
-    "react": "^0.13.2",
     "babel": "^5.0.10",
     "babel-loader": "^5.0.0",
     "karma-chrome-launcher": "^0.1.5",
