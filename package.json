@@ -1,6 +1,6 @@
 {
   "name": "react-konva",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Olim <olim.mail@gmail.com> Saidov, Mikhail <freiksenet@gmail.com> Novikov",
   "description": "Using Konva library with React",
   "keywords": [
@@ -17,7 +17,6 @@
   "devDependencies": {
     "konva": "^0.9.0",
     "react": "^0.13.2",
-    "jshint": "^2.5.6",
     "babel": "^5.0.10",
     "babel-loader": "^5.0.0",
     "karma-chrome-launcher": "^0.1.5",
@@ -26,7 +25,10 @@
     "karma-jasmine": "^0.3.5",
     "karma-webpack": "^1.2.2",
     "webpack": "^1.8.8",
-    "webpack-dev-server": "^1.8.2"
+    "webpack-dev-server": "^1.8.2",
+    "babel-eslint": "^3.0.1",
+    "eslint": "^0.19.0",
+    "eslint-plugin-react": "^2.1.1"
   },
   "main": "./react-konva",
   "scripts": {
@@ -35,8 +37,11 @@
     "demo": "npm run umd && cp -r demo build/ && cp index.html build/",
     "umd-min": "webpack --config webpack.config.min.js",
     "start": "webpack-dev-server -d --colors --progress",
-    "test": "jshint ./react-konva.js ./src/*.js ./test/*.js && karma start --single-run --browsers Firefox",
+    "test": "karma start --single-run --browsers Firefox",
     "test-watch": "karma start",
-    "gh-pages": "./scripts/gh-pages.sh"
+    "gh-pages": "./scripts/gh-pages.sh",
+
+    "examples": "webpack-dev-server --config examples/webpack.config.js --content-base examples",
+    "build": "./scripts/build.sh"
   }
 }

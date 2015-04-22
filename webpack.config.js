@@ -1,38 +1,51 @@
 var webpack = require('webpack');
 
+var plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  })
+];
+
+if (process.env.COMPRESS) {
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
+    })
+  );
+}
+
 module.exports = {
-  entry: {
-    'react-konva': ['./react-konva'],
-    'smoke-test': './demo/smoke-test.js',
-    'rectangles': './demo/rectangles',
-    'plane-game': './demo/plane-game.js'
-  },
+
   output: {
-    path: 'build',
-    filename: '[name].js',
     library: 'ReactKonva',
     libraryTarget: 'umd'
   },
+
+  externals: [
+    {
+      react: {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      konva: {
+        root: 'Konva',
+        commonjs: 'konva',
+        commonjs2: 'konva',
+        amd: 'konva'
+      }
+    }
+  ],
+
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'jsx-loader?harmony'}
+      { test: /\.js$/, loader: 'babel-loader?stage=0&loose=all' }
     ]
   },
-  externals: {
-    react: {
-      root: "React",
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "react"
-    },
-    konva: {
-      root: "Konva",
-      commonjs: "konva",
-      commonjs2: "konva",
-      amd: "konva"
-    }
-  },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin("react-konva", "react-konva.js")
-  ]
+
+  plugins: plugins
+
 };
