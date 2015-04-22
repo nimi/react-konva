@@ -2,7 +2,7 @@
 
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
-var RK = require('../react-konva');
+var RK = require('../src/index');
 var Stage = React.createFactory(RK.Stage);
 var Layer = React.createFactory(RK.Layer);
 var Circle = React.createFactory(RK.Circle);
@@ -11,22 +11,22 @@ var TextPath = React.createFactory(RK.TextPath);
 
 describe('Stage', function () {
   it('can render empty Stage', function () {
-    var stage = TestUtils.renderIntoDocument(Stage(null));
+    var stage = TestUtils.renderIntoDocument(new Stage(null));
     expect(stage.getDOMNode().textContent).toEqual('');
   });
 });
 
 function renderIntoStage(component) {
     return TestUtils.renderIntoDocument(
-      Stage(null,
-          Layer(null, component)));
+      new Stage(null,
+          new Layer(null, component)));
 }
 
 describe('Circle', function () {
   it('can render Circle', function () {
     var stageInstance = TestUtils.renderIntoDocument(
-      Stage(null,
-        Layer(null, Circle({
+      new Stage(null,
+        new Layer(null, new Circle({
             id: 1, x: 10, y: 20,
             radius: 5, stroke: 'red'
         }))));
@@ -46,7 +46,7 @@ describe('Circle', function () {
 describe('Text', function () {
 
   it('can render Text with no size', function () {
-    var stageInstance = renderIntoStage(Text({text: 'Hello, world'}));
+    var stageInstance = renderIntoStage(new Text({text: 'Hello, world'}));
     var renderedText = TestUtils.findRenderedComponentWithType(
       stageInstance,
       Text
@@ -57,7 +57,7 @@ describe('Text', function () {
   });
 
   it('can render Text with size', function () {
-    var stageInstance = renderIntoStage(Text({
+    var stageInstance = renderIntoStage(new Text({
       x: 10,
       y: 15,
       text: 'Hello, world',
@@ -83,7 +83,7 @@ describe('TextPath', function () {
     var txt = (
       'All the world\'s a stage, and all the men and women merely players.'
     );
-    var stageInstance = renderIntoStage(TextPath({
+    var stageInstance = renderIntoStage(new TextPath({
       x: 100,
       y: 50,
       fill: '#333',
