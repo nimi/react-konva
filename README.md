@@ -4,7 +4,7 @@ react-konva
 Konva canvas library using React components based on [react-kinetic](https://github.com/freiksenet/react-kinetic).
 
 An attempt to make [React](http://facebook.github.io/react/) work with the
-[Konva](https://github.com/olimsaidov/konva) HTML5 canvas library. The goal is to have
+[Konva](https://github.com/konvajs/konva) HTML5 canvas library. The goal is to have
 similar declarative markup as normal React and to have similar data-flow model.
 
 Currently you can use all Konva components as React components and all Konva
@@ -35,14 +35,8 @@ If you want to build from source
 ```
 git clone https://github.com/olimsaidov/react-konva.git
 cd react-konva
-npm run umd
+npm run build
 ```
-
-`build/react-konva.js` will be a standalone dist, you can require
-react and react-konva from there.
-ReactKonva
-Note that in all cases you need to have react and konva available, so have
-them included in `<script>` tag (or available to RequireJS if you use AMD).
 
 User guide
 ----------
@@ -50,12 +44,10 @@ User guide
 Minimal example:
 
 ```js
-/** @jsx React.DOM */
-
 var React = require('react');
 var ReactKonva = require('react-konva');
 
-var TestingComponent = React.createClass({
+var Demo = React.createClass({
   render: function () {
     return (
       <ReactKonva.Stage height={300} width={300}>
@@ -67,10 +59,7 @@ var TestingComponent = React.createClass({
   }
 });
 
-React.renderComponent(
-  <TestingComponent />,
-  document.body
-);
+React.render(<Demo />, document.body);
 ```
 
 All react-konva components correspond to Konva components of the same
@@ -90,12 +79,7 @@ of props or children.
 elements are: `Container`, `Layer`, `Group`, `Label`, `Shape`, `Rect`, `Circle`,
 `Ellipse`, `Ring`, `Wedge`, `Arc`, `Image`, `Text`, `Line`, `Sprite`, `Path`,
 `TextPath`, `RegularPolygon`, `Star` and `Tag`. See Konva
-[API docs](https://github.com/olimsaidov/konva) for valid props.
-
-Currently there is no API to add react-konva components for custom Konva
-nodes, but I'm planning to add it in the future. See
-[KonvaComponent.js](src/KonvaComponent.js) and
-[KonvaFactory.js](src/KonvaComponent.js).
+[API docs](https://github.com/konvajs/konva) for valid props.
 
 ### Events
 
@@ -125,7 +109,7 @@ var KonvaEvents = {
 ```
 
 Events work in similar way as they work in normal React. See
-[demo/rectangles.js](demo/rectangles.js) for examples.
+[demo/rectangles.js](examples/rectangles/app.js) for examples.
 
 Internally, events use the `.react` namespace for Konva events,
 so this namespace shouldn't be used if you manually bind events,
@@ -133,5 +117,5 @@ e.g. in `componentDidMount`.
 
 ### Some internals
 
-To get raw Konva node object, use the `getKonvaNode` method which all
+To get raw Konva node object, use the `node` property which all
 react-konva components have.
