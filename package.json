@@ -1,6 +1,6 @@
 {
   "name": "react-konva",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "author": "Olim <olim.mail@gmail.com> Saidov, Mikhail <freiksenet@gmail.com> Novikov",
   "description": "Using Konva library with React",
   "keywords": [
