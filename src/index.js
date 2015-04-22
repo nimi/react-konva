@@ -1,5 +1,6 @@
 exports.Stage = require('./Stage');
 exports.Layer = require('./Layer');
+exports.FastLayer = require('./FastLayer');
 exports.Group = require('./Group');
 
 exports.Arc = require('./shapes/Arc');
