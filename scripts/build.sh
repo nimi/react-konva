@@ -5,7 +5,7 @@ webpack=node_modules/.bin/webpack
 
 rm -rf build
 
-$babel -d build/lib ./src
+$babel -e 0 -L -d build/lib ./src
 cp README.md build/
 find -X build/lib -type d -name __tests__ | xargs rm -rf
 node -p 'p=require("./package");p.main="lib";p.scripts=p.devDependencies=undefined;JSON.stringify(p,null,2)' > build/package.json
