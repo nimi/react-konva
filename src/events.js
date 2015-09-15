@@ -16,5 +16,17 @@ export default {
   onTouchEnd: 'touchend.react',
   onTap: 'tap.react',
   onDblTap: 'dbltap.react',
-  onDragMove: 'dragmove.react'
+  onDragMove: 'dragmove.react',
+	onContentClick:'contentClick.react',
+	onContentMouseover:'contentMouseover.react',
+	onContentMousemove:'contentMousemove.react',
+	onContentMouseout:'contentMouseout.react',
+	onContentMousedown:'contentMousedown.react',
+	onContentMouseup:'contentMouseup.react',
+	onContentDblclick:'contentDblclick.react',
+	onContentTouchstart:'contentTouchstart.react',
+	onContentTouchmove:'contentTouchmove.react',
+	onContentTouchend:'contentTouchend.react',
+	onContentTap:'contentTap.react',
+	onContentDblTap:'contentDblTap.react'
 };
