@@ -23,7 +23,7 @@ class Container extends Base {
   render() {
     return (
       <span>
-        {React.Children.map(this.props.children, child => React.addons.cloneWithProps(child))}
+        {React.Children.map(this.props.children, child => child ? React.addons.cloneWithProps(child) : null)}
       </span>
     );
   }
