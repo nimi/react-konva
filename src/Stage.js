@@ -16,7 +16,7 @@ class Stage extends Container {
     return (
         <div>
           <div ref="canvas"></div>
-          {React.Children.map(this.props.children, child => React.addons.cloneWithProps(child))}
+          {React.Children.map(this.props.children, child => child ? React.addons.cloneWithProps(child) : null)}
         </div>
     );
   }
