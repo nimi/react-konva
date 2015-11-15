@@ -12,8 +12,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^0.13.2",
-    "konva": "^0.9.0"
+    "react": "~0.14.0",
+    "konva": "~0.10.0"
   },
   "devDependencies": {
     "babel": "^5.0.10",
